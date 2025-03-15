@@ -70,7 +70,7 @@ sed -i "s|SECRET_KEY = ''|SECRET_KEY = '${ESCAPED_SECRET_KEY}'|" /opt/netbox/net
 sed -i "/DATABASE = {/,/}/s/'USER': '[^']*'/'USER': '$DB_USER'/" /opt/netbox/netbox/netbox/configuration.py
 sed -i "/DATABASE = {/,/}/s/'PASSWORD': '[^']*'/'PASSWORD': '$DB_PASS'/" /opt/netbox/netbox/netbox/configuration.py
 
-
+$STD /opt/netbox/upgrade.sh
 ln -s /opt/netbox/contrib/netbox-housekeeping.sh /etc/cron.daily/netbox-housekeeping
 
 mv /opt/netbox/contrib/apache.conf /etc/apache2/sites-available/netbox.conf
